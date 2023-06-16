@@ -4,7 +4,7 @@ sudo su root
 sleep
 clear
 echo"更新软件源"
-apt update -y&& apt upgrade
+apt update -y&& apt upgrade -y
 echo “开始安装nodejs”
 sudo apt-get install nodejs -y
 sudo apt-get install npm -y
