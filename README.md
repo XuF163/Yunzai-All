@@ -1,6 +1,6 @@
-# Yunzai-All
-一键安装各种版本的崽
-适用于ub
+# Yunzai-All  
+一键安装各种版本的崽  
+适用于ub  
 '''
 bash < <(https://gitee.com/xyzqwefd/Yunzai-All/raw/main/YzALL.sh)
 '''
