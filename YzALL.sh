@@ -1,7 +1,14 @@
 #!bin/bash
-echo "请切换到root"
-sudo su root
-sleep
+
+if [[ $EUID -ne 0 ]]; then
+    echo "需要以 root 权限运行脚本，请输入 root 密码："
+    sudo -v
+    if [[ $? -ne 0 ]]; then
+        echo "认证失败，请检查密码是否正确。"
+        exit 1
+    fi
+fi
+sleep 5
 clear
 echo"更新软件源"
 apt update -y&& apt upgrade -y
