@@ -7,3 +7,7 @@ bash < <(curl -sL gitee.com/xyzqwefd/Yunzai-All/raw/main/YzALL.sh)
 复制执行即可
 一键安装喵仔 原版崽 柠檬崽
 方便快速恢复运行环境
+##船新版本
+```
+bash < <(curl -sL https://github.com/XuF163/Yunzai-All/raw/main/Yz.sh)
+```
