@@ -51,5 +51,5 @@ apt-get install speedtest-cli -y
 speedtest-cli
 ;;
 esac
-
+#检测 
 
