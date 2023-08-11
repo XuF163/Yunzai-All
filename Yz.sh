@@ -66,19 +66,19 @@ redis-server --daemonize yes
 fi
 echo"-------------------------------------------------------------------------------------"
 echo "正在安装云崽"
-            if [url=gitee.com];
-            then
-            git clone --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git&>/dev/null
-            cd Miao-Yunzai 
-            git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/ &>/dev/null
-            npm --registry=https://registry.npmmirror.com install pnpm -g %>/dev/null
-            pnpm config set registry https://registry.npmmirror.com 
-            pnpm install -P
-            echo "-------------------------------------------------------------------------------------"
-            elif [url=github.com];
-            then
-            echo "国外源还没找到"
-            echo "安装完成"
+ if [url=gitee.com];
+    then
+        git clone --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git&>/dev/null
+        cd Miao-Yunzai 
+        git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/ &>/dev/null
+        npm --registry=https://registry.npmmirror.com install pnpm -g %>/dev/null
+        pnpm config set registry https://registry.npmmirror.com 
+        pnpm install -P
+        echo "-------------------------------------------------------------------------------------"
+elif [url=github.com];
+    then
+        echo "国外源还没找到"
+        echo "安装完成"
 #全局替换“node app”命令为“云崽启动”
 alias 云崽="cd Miao-Yunzai&&node app"
 #刷新配置文件
