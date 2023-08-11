@@ -48,12 +48,34 @@ echo "node已安装"
 elif [ $? ne 0 ];
 then echo "node未安装"
 #安装node并升级到最新稳定版
-apt update -y
+aptupdate -y
 apt install nodejs -y
 npm install -g n
 n stable
 fi
-    
+#检测redis是否安装，未安装则安装
+redis-server -v&>/dev/null
+if [ $? -eq 0 ];
+then echo "redis已安装"
+redis-server --daemonize yes
+else
+#安装redis并启动保活
+aptupdate -y
+apt install redis-server -y
+redis-server --daemonize yes
+fi
+echo"-------------------------------------------------------------------------------------"
+echo "正在安装云崽"
+git clone --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git&>/dev/null
+cd Miao-Yunzai 
+git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/ &>/dev/null
+npm --registry=https://registry.npmmirror.com install pnpm -g %>/dev/null
+pnpm config set registry https://registry.npmmirror.com 
+pnpm install -P
+echo "-------------------------------------------------------------------------------------"
+echo "安装完成"
+#全局替换“node app”命令为“云崽启动”
+alias 云崽="cd Miao-Yunzai&&node app"
 ;
 ;
 3）
@@ -64,5 +86,5 @@ apt-get install speedtest-cli -y
 speedtest-cli
 ;;
 esac
-#检测 
+
 
