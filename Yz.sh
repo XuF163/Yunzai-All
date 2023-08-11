@@ -40,6 +40,19 @@ echo "git已安装"
 else
 apt-get install git -y
 fi
+ #检测node是否安装以及版本号是否大于16，如果小于或未安装则安装
+node -v&>/dev/null   
+if [ $? -gt 16 ];
+then 
+echo "node已安装"
+elif [ $? ne 0 ];
+then echo "node未安装"
+#安装node并升级到最新稳定版
+apt update -y
+apt install nodejs -y
+npm install -g n
+n stable
+fi
     
 ;
 ;
